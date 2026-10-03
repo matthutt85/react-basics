@@ -28,10 +28,22 @@
             )
         }
 
+        //Chat from the user to the bot. component will need a text box and a profile image
+
+        const ChatMessage = () => {
+            return (
+                <div>
+                    Hello chatbot
+                    <img src="user_image.png" alt="" width="50" />
+                </div>
+            )
+        }
+
         // we than load our companent from above into our rendered element with <ChatInput />
         const App = (
             <>
                 <ChatBot />
+                <ChatMessage />
             </>
         )
      // how to target elements with js for react
