@@ -19,27 +19,26 @@
 
         // below is a function that we call a component
         // the below <> is called a fragment, it is a container without using a div
-        const ChatInput = () => {
+        const ChatBot = () => {
             return (
                 <>
-                    <input /> 
+                    <input type="text" Placeholder = "Send a message to ChatBot" size="30" />
                     <button>Send</button>
                 </>
             )
         }
 
         // we than load our companent from above into our rendered element with <ChatInput />
-        const div = (
-            <div>
-                <ChatInput />
-            </div>
+        const App = (
+            <>
+                <ChatBot />
+            </>
         )
-
      // how to target elements with js for react
      // grab the element you want to display
      const container = document.querySelector(".js-container");
      // render this on the website in the react dom
-     ReactDOM.createRoot(container).render(div);
+     ReactDOM.createRoot(container).render(App);
      // the above code takes the container variable which contains the div element - js container and populates it with Welcome to react 
     </script>
     
