@@ -29,11 +29,15 @@
         }
 
         //Chat from the user to the bot. component will need a text box and a profile image
+        // props is an object - it contains ill the attributes we give to <ChatMessage /> e.g. props = {message: "hello chatbot"}
 
-        const ChatMessage = () => {
+        const ChatMessage = (props) => {
+            // create a variable to store the value of the props attributes in
+            const message = props.message;
+
             return (
                 <div>
-                    Hello chatbot
+                    {message}
                     <img src="user_image.png" alt="" width="50" />
                 </div>
             )
@@ -43,7 +47,7 @@
         const App = (
             <>
                 <ChatBot />
-                <ChatMessage />
+                <ChatMessage message="hello chatbot"/>
             </>
         )
      // how to target elements with js for react
