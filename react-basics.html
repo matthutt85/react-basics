@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Basics</title>
+</head>
+<body>
+
+ <div class="js-container"></div>
+
+    <!--The script tags below load the react library-->
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <!--The script below runs the react dom - this loads features specifc for websites, if developing for mobile apps you would load react and reactNative-->
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <!--The script below loads the Babel library, this allows react code to be compiled in Javascript, as websites cant read JSX, only JS-->
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+        // below is a function that we call a component
+        // the below <> is called a fragment, it is a container without using a div
+        const ChatInput = () => {
+            return (
+                <>
+                    <input /> 
+                    <button>Send</button>
+                </>
+            )
+        }
+
+        // we than load our companent from above into our rendered element with <ChatInput />
+        const div = (
+            <div>
+                <ChatInput />
+            </div>
+        )
+
+     // how to target elements with js for react
+     // grab the element you want to display
+     const container = document.querySelector(".js-container");
+     // render this on the website in the react dom
+     ReactDOM.createRoot(container).render(div);
+     // the above code takes the container variable which contains the div element - js container and populates it with Welcome to react 
+    </script>
+    
+</body>
+</html>
+
