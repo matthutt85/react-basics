@@ -28,19 +28,38 @@
             )
         }
 
-        //Chat from the user to the bot. component will need a text box and a profile image
+        // Chat from the user to the bot. component will need a text box and a profile image
         // props is an object - it contains ill the attributes we give to <ChatMessage /> e.g. props = {message: "hello chatbot"}
 
         const ChatMessage = (props) => {
             // create a variable to store the value of the props attributes in
-            const message = props.message;
-            const image = props.image;
-            const imageWidth = props.imageWidth
+            const message = props.message; //gives access to message property from <ChatMessage /> in App()
+            const sender = props.sender; //gives access to sender property from <ChatMessage /> in App()
+
+            // below is an if statement that chooses the content of the sender.props based on if sender = robot or user
+
+            if (sender === "robot") {
+                return (
+                    <div>
+                        <img src="robot_image.png" width="50"/>
+                        {message}
+                    </div>
+                )
+            } else {
+                return (
+                    <div>
+                        {message}
+                        <img src="user_image.png" width="50"/>
+                    </div>
+                )
+            }
+
+            // below is the main content of ChatMessage 
 
             return (
                 <div>
                     {message}
-                    <img src={props.image} width={imageWidth}/>
+                    <img src="user_image.png" width="50"/>
                 </div>
             )
         }
@@ -49,10 +68,10 @@
         const App = (
             <>
                 <ChatBot />
-                <ChatMessage message="hello chatbot" image="robot_image.png" imageWidth="50" />
-                <ChatMessage message="Hello! How can I help you?" image="user_image.png" imageWidth="50" />
-                <ChatMessage message="can you get me todays date?" image="robot_image.png" imageWidth="50" />
-                <ChatMessage message="Today is September 27" image="user_image.png" imageWidth="50" />
+                <ChatMessage message="hello chatbot" sender="user"/>
+                <ChatMessage message="Hello! How can I help you?" sender="robot"/>
+                <ChatMessage message="can you get me todays date?" sender="user"/>
+                <ChatMessage message="Today is September 27" sender="robot"/>
             </>
         )
      // how to target elements with js for react
