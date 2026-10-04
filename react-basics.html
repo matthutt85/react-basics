@@ -34,11 +34,13 @@
         const ChatMessage = (props) => {
             // create a variable to store the value of the props attributes in
             const message = props.message;
+            const image = props.image;
+            const imageWidth = props.imageWidth
 
             return (
                 <div>
                     {message}
-                    <img src="user_image.png" alt="" width="50" />
+                    <img src={props.image} width={imageWidth}/>
                 </div>
             )
         }
@@ -47,8 +49,10 @@
         const App = (
             <>
                 <ChatBot />
-                <ChatMessage message="hello chatbot"/>
-                <ChatMessage message="Hello! How can I help you?" />
+                <ChatMessage message="hello chatbot" image="robot_image.png" imageWidth="50" />
+                <ChatMessage message="Hello! How can I help you?" image="user_image.png" imageWidth="50" />
+                <ChatMessage message="can you get me todays date?" image="robot_image.png" imageWidth="50" />
+                <ChatMessage message="Today is September 27" image="user_image.png" imageWidth="50" />
             </>
         )
      // how to target elements with js for react
